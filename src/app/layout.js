@@ -15,6 +15,7 @@ import Whatsapp from "../assets/whatsapp.svg";
 import Linkedin from "../assets/linkedin.svg";
 import Mo from "../assets/mo.svg";
 import LongWave from "../assets/elemento-grafico-mo.svg";
+import LogoAnimation from "../assets/signature.gif";
 
 const vcr = localFont({
   src: "./fonts/vcr_osd.ttf",
@@ -49,9 +50,9 @@ export default function RootLayout({ children }) {
       >
         <main className="">
           {/* MENU */}
-          <div className="fixed z-50 mx-auto flex w-full flex-row items-center justify-between bg-gray-50 px-20 py-4">
+          <div className="fixed z-50 mx-auto hidden w-full flex-row items-center justify-between bg-gray-50 px-20 py-4 sm:flex">
             <div className="mx-auto flex w-full max-w-[1440px] items-center justify-center sm:justify-between">
-              <Image src={logoMenu} alt="Logo Oi Mô" />
+              <Image width={200} src={logoMain} alt="Logo Oi Mô" />
               <ul className="mt-4 hidden flex-row gap-2 sm:flex">
                 <li className="uppercase">Nós</li>
                 <li>
@@ -68,7 +69,10 @@ export default function RootLayout({ children }) {
 
           {/* HERO */}
           <section className="mx-auto mb-0 flex min-h-screen items-center justify-center bg-[url(../assets/bg-hero.png)] bg-cover p-2 sm:p-0 lg:mb-40">
-            <Image src={logoMain} alt="Oi Mô - Creative Music Production" />
+            <Image
+              src={LogoAnimation}
+              alt="Oi Mô - Creative Music Production"
+            />
           </section>
 
           {/* NÓS */}
@@ -236,17 +240,21 @@ export default function RootLayout({ children }) {
           </section>
 
           {/* FOOTER */}
-          <footer className="mx-auto flex max-w-[1440px] flex-col items-center justify-between px-4 py-4 sm:flex-row sm:items-end sm:px-4 sm:py-14">
-            <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-right">
+          <footer className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row sm:items-end sm:px-4 sm:py-14">
+            <div className="flex flex-col items-center gap-8 text-center sm:items-start sm:text-right">
               <Image
                 src={logoMain}
                 width={300}
                 alt="Oi Mô - Creative Music Production"
               />
-              <span>São Paulo, Brasil</span>
-              <span>© 2023 OI MÔ - TODOS OS DIREITOS RESERVADOS</span>
+              <div className="flex flex-col items-center sm:items-start">
+                <span className="text-xs uppercase">São Paulo, Brasil</span>
+                <span className="text-xs">
+                  © 2023 OI MÔ - TODOS OS DIREITOS RESERVADOS
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-right">
+            <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-right">
               <span>oi@oimo.com.br</span>
               <span>+55 21 999 999 999</span>
               <div className="flex flex-row gap-2">
