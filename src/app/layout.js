@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
           <div className="fixed z-50 mx-auto flex w-full flex-row items-center justify-between bg-gray-50 px-20 py-4">
             <div className="mx-auto flex w-full max-w-[1440px] items-center justify-center sm:justify-between">
               <Image src={logoMenu} alt="Logo Oi Mô" />
-              <ul className="hidden flex-row gap-2 sm:flex">
+              <ul className="mt-4 hidden flex-row gap-2 sm:flex">
                 <li className="uppercase">Nós</li>
                 <li>
                   <Image src={Wave} alt="Elemento decorativo onda" />
@@ -67,13 +67,13 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* HERO */}
-          <section className="mx-auto mb-0 flex min-h-screen justify-center bg-[url(../assets/bg-hero.png)] bg-cover p-2 sm:mb-40 sm:p-0">
+          <section className="mx-auto mb-0 flex min-h-screen items-center justify-center bg-[url(../assets/bg-hero.png)] bg-cover p-2 sm:p-0 lg:mb-40">
             <Image src={logoMain} alt="Oi Mô - Creative Music Production" />
           </section>
 
           {/* NÓS */}
-          <section className="mx-auto mb-8 grid max-w-[1440px] grid-cols-1 sm:mb-40 sm:grid-cols-2">
-            <article className="flex justify-center bg-yellow-500 p-2 sm:p-24">
+          <section className="mx-auto mb-8 grid max-w-[1440px] grid-cols-1 p-4 sm:mb-40 lg:grid-cols-2">
+            <article className="order-last flex justify-center bg-yellow-500 p-2 sm:p-24 lg:order-first">
               <Image src={headSet} alt="Imagem retrô de fones de ouvido" />
             </article>
             <article className="flex justify-center p-4 sm:p-24">
@@ -97,42 +97,42 @@ export default function RootLayout({ children }) {
           </section>
 
           {/* TRABALHOS */}
-          <section className="mb-8 sm:mb-40">
-            <div className="relative mx-auto flex max-w-[1440px] flex-col p-4 sm:p-0">
+          <section className="mb-8 p-4 sm:mb-40">
+            <div className="relative mx-auto flex max-w-[1440px] flex-col p-2 sm:p-0">
               <Image
-                className="absolute -top-[12%] left-[14%] hidden rotate-45 sm:w-full"
+                className="absolute -top-[12%] left-[14%] hidden rotate-45 sm:block"
                 src={Mo}
                 alt="Logo decorativo Mô"
               />
               <Image
-                className="absolute bottom-0 left-[24%] hidden -rotate-12 sm:w-full"
+                className="absolute bottom-0 left-[24%] hidden -rotate-12 sm:block"
                 src={Mo}
                 alt="Logo decorativo Mô"
               />
               <Image
-                className="absolute -top-[30%] right-[2%] hidden -rotate-6 sm:w-full"
+                className="absolute -top-[30%] right-[2%] hidden -rotate-6 sm:block"
                 src={Mo}
                 alt="Logo decorativo Mô"
               />
               <h3 className="mb-12 font-alt text-2xl uppercase">Trabalhos</h3>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 <div>
-                  <Image src={Client1} width={500} />
+                  <Image src={Client1} width={500} alt="" />
                 </div>
                 <div>
-                  <Image src={Client2} width={500} />
+                  <Image src={Client2} width={500} alt="" />
                 </div>
                 <div>
-                  <Image src={Client3} width={500} />
+                  <Image src={Client3} width={500} alt="" />
                 </div>
                 <div>
-                  <Image src={Client1} width={500} />
+                  <Image src={Client1} width={500} alt="" />
                 </div>
                 <div>
-                  <Image src={Client2} width={500} />
+                  <Image src={Client2} width={500} alt="" />
                 </div>
                 <div>
-                  <Image src={Client3} width={500} />
+                  <Image src={Client3} width={500} alt="" />
                 </div>
               </div>
               <button className="mt-8 w-fit justify-end self-end bg-transparent">
@@ -144,57 +144,90 @@ export default function RootLayout({ children }) {
           </section>
 
           {/* CONTATO */}
-          <section className="mb-8 sm:mb-40">
-            <div className="relative mx-auto max-w-[1440px] p-4 sm:p-0">
+          <section className="mb-8 p-4 sm:mb-40">
+            <div className="relative mx-auto max-w-[1440px] p-2 sm:p-0">
               <Image
                 className="w-full sm:w-[1063px]"
                 src={Pattern}
                 alt="Oi Mô - Creative Music Production"
               />
-              <div className="relative right-0 top-1/2 -translate-y-0 border-2 border-gray-900 bg-gray-50 p-2 sm:absolute sm:-translate-y-1/2 sm:p-16">
-                <h3 className="mb-12 font-alt text-2xl uppercase">
+              <div className="relative right-0 top-1/2 -translate-y-0 border-2 border-gray-900 bg-gray-50 p-4 sm:absolute sm:-translate-y-1/2 sm:p-16">
+                <h3 className="mb-4 font-alt text-xl uppercase sm:mb-12 sm:text-2xl">
                   {"Fala com a gente :)"}
                 </h3>
                 <form action="">
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-2 sm:flex-row">
+                      <div className="flex flex-col gap-1">
+                        <label
+                          className="text-xs font-bold uppercase"
+                          htmlFor="name"
+                        >
+                          Nome
+                        </label>
+                        <input
+                          className="w-full border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-sm placeholder:text-gray-700"
+                          type="text"
+                          placeholder="Nome"
+                          id="name"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <label
+                          className="text-xs font-bold uppercase"
+                          htmlFor="name"
+                        >
+                          Email
+                        </label>
+                        <input
+                          className="w-full border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-sm placeholder:text-gray-700"
+                          type="email"
+                          name=""
+                          id="email"
+                          placeholder="Email"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        className="text-xs font-bold uppercase"
+                        htmlFor="subject"
+                      >
+                        Assunto
+                      </label>
                       <input
-                        className="h-16 w-full border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-gray-900"
+                        className="w-full border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-sm placeholder:text-gray-700"
                         type="text"
-                        placeholder="Nome"
-                      />
-                      <input
-                        className="h-16 w-full border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-gray-900"
-                        type="email"
                         name=""
-                        id=""
-                        placeholder="Email"
+                        id="subject"
+                        placeholder="Assunto"
                       />
                     </div>
-                    <input
-                      className="h-16 w-full border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-gray-900"
-                      type="text"
-                      name=""
-                      id=""
-                      placeholder="Assunto"
-                    />
-                    <textarea
-                      className="h-40 w-full resize-none border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-gray-900"
-                      name=""
-                      id=""
-                      cols="30"
-                      rows="10"
-                      placeholder="Mensagem"
-                    />
+                    <div>
+                      <label
+                        className="text-xs font-bold uppercase"
+                        htmlFor="message"
+                      >
+                        Mensagem
+                      </label>
+                      <textarea
+                        className="h-40 w-full resize-none border-2 border-gray-900 bg-gray-50 p-2 placeholder:text-sm placeholder:text-gray-700"
+                        name=""
+                        id="message"
+                        cols="30"
+                        rows="10"
+                        placeholder="Mensagem"
+                      />
+                    </div>
                   </div>
-                  <button className="mt-8 w-fit bg-transparent">
+                  <button className="mt-4 w-fit bg-transparent">
                     <span className="font-alt text-xl uppercase">
                       {"Enviar ->"}
                     </span>
                   </button>
                 </form>
                 <Image
-                  className="absolute -bottom-[20%] -right-0 hidden w-60 sm:-bottom-[10%] sm:-right-[10%] sm:inline-block sm:w-[400px]"
+                  className="absolute -bottom-[20%] right-0 hidden w-60 sm:-bottom-[10%]  sm:inline-block sm:w-[400px]"
                   src={LongWave}
                   alt="Elemento gráfico Mô"
                 />
@@ -203,7 +236,7 @@ export default function RootLayout({ children }) {
           </section>
 
           {/* FOOTER */}
-          <footer className="mx-auto flex max-w-[1440px] flex-col items-center justify-between px-4 py-4 sm:flex-row sm:items-end sm:px-0 sm:py-14">
+          <footer className="mx-auto flex max-w-[1440px] flex-col items-center justify-between px-4 py-4 sm:flex-row sm:items-end sm:px-4 sm:py-14">
             <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-right">
               <Image
                 src={logoMain}
