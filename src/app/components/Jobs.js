@@ -1,32 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import Client1 from "@/assets/cliente-1.png";
-import Client2 from "@/assets/cliente-2.png";
-import Client3 from "@/assets/cliente-3.png";
 import Mo from "@/assets/mo.svg";
 import { useInView } from "react-intersection-observer";
 
-export default function Jobs() {
+export default function Jobs({ jobs }) {
   const { ref: JobsTitleRef, inView } = useInView();
 
   return (
     <section className="mb-8 p-4 sm:mb-40">
       <div className="relative mx-auto flex max-w-[1440px] flex-col p-2 sm:p-0">
         <Image
-          className={`absolute -top-[12%] left-[14%] hidden rotate-45 opacity-0 transition-all duration-500 ease-in sm:block ${
+          className={`absolute -top-[12%] left-[14%] z-10 hidden rotate-45 opacity-0 transition-all duration-500 ease-in sm:block ${
             inView && "translate-y-10 opacity-100"
           }`}
           src={Mo}
           alt="Logo decorativo Mô"
         />
         <Image
-          className={`absolute bottom-0 left-[24%] hidden -rotate-12 sm:block`}
+          className={`absolute bottom-0 left-[24%] z-10 hidden -rotate-12 sm:block`}
           src={Mo}
           alt="Logo decorativo Mô"
         />
         <Image
-          className={`absolute -top-[30%] right-[2%] hidden -rotate-6 opacity-0 transition-all duration-500 ease-in sm:block ${
+          className={`absolute -top-[30%] right-[2%] z-10 hidden -rotate-6 opacity-0 transition-all duration-500 ease-in sm:block ${
             inView && "translate-x-10 opacity-100"
           }`}
           src={Mo}
@@ -36,27 +33,28 @@ export default function Jobs() {
           Trabalhos
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-          <div>
-            <Image src={Client1} width={500} alt="" />
-          </div>
-          <div>
-            <Image src={Client2} width={500} alt="" />
-          </div>
-          <div>
-            <Image src={Client3} width={500} alt="" />
-          </div>
-          <div>
-            <Image src={Client1} width={500} alt="" />
-          </div>
-          <div>
-            <Image src={Client2} width={500} alt="" />
-          </div>
-          <div>
-            <Image src={Client3} width={500} alt="" />
-          </div>
+          {jobs.map((job) => (
+            <a key={job.sys.id} className="group relative z-0 cursor-pointer">
+              <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center bg-blue-500 opacity-0 transition-opacity duration-100 ease-in group-hover:opacity-80">
+                <h2 className="font-alt uppercase text-gray-50">
+                  {job.fields.title}
+                </h2>
+              </div>
+              <Image
+                src={`https:${job.fields.backgroundImage.fields.file.url}`}
+                className="h-[300px] w-full object-cover"
+                width={500}
+                height={300}
+                alt=""
+              />
+            </a>
+          ))}
         </div>
-        <button className="mt-8 w-fit justify-end self-end bg-transparent">
-          <span className="font-alt text-xl uppercase">{"Ver Todos ->"}</span>
+        <button className="group mt-8 w-fit justify-end self-end bg-transparent p-2 text-gray-900 transition-colors ease-in hover:bg-blue-500 hover:text-gray-50">
+          <span className="mr-4 font-alt text-lg uppercase">{"Ver Todos"}</span>
+          <span className="inline-block -translate-x-2 font-alt text-lg uppercase transition-transform duration-200 ease-in group-hover:translate-x-0">
+            {"->"}
+          </span>
         </button>
       </div>
     </section>
